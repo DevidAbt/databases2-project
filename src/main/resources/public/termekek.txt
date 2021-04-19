@@ -1,0 +1,541 @@
+
+*******************************
+TERMÉKEK (78)
+*******************************
+id;uzletId;termekFajtaId;kategoriaId;nev;ar;leiras
+
+
+/*Elektromos eszközök*/
+Fűnyírók;
+
+
+
+1000;1;100;10;Fieldmann FZR;21990;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1001;2;100;10;Makita ELM3720;34290;40 l-es fűgyűjtő, Központi vágásmagasság állítás 3 fokozatban;
+1002;3;100;10;Agrimotor FM3310;15989;Fűgyűjtős elektromos fűnyíró 30,5 cm-es vágószélességgel. Két funkciója közül választhat: fűgyűjtés vagy hátsó kidobás.;
+1003;1;100;10;Bosch ARM 32;33490;A Bosch fűnyíró könnyű és kompakt a kényelmes hordozhatóság és a problémamentes irányítás érdekében
+
+1004;1;100;10;
+1005;1;100;10;
+1006;4;100;10;
+1007;4;100;10;
+
+1008;3;100;10;
+1009;1;100;10;
+1010;2;100;10;
+1011;4;100;10;
+
+Kültéri világítás;
+
+1012;3;101;10;
+1013;4;101;10;
+1014;1;101;10;
+1015;1;101;10;
+
+1016;1;101;10;
+1017;2;101;10;
+1018;2;101;10;
+1019;3;101;10;
+
+1020;1;101;10;
+1021;4;101;10;
+1022;2;101;10;
+1023;3;101;10;
+
+
+1024;4;102;10;
+1025;2;102;10;
+1026;3;102;10;
+1027;1;102;10;
+
+1028;1;102;10;
+1029;4;102;10;
+1030;1;102;10;
+1031;4;102;10;
+
+1032;1;102;10;
+1033;2;102;10;
+1034;3;102;10;
+1035;4;102;10;
+
+
+/*Növények*/
+
+103;Cserepes növények;
+104;Magvak;
+105;Növényápolás, növénytermesztés;
+
+
+
+1036;1;100;11;
+1037;2;100;11;
+1038;4;100;11;
+1039;3;100;11;
+
+1040;4;100;11;
+1041;2;100;11;
+1042;3;100;11;
+1043;3;100;11;
+
+1044;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1045;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1046;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1047;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1048;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1049;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1050;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1051;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1052;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1053;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1054;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1055;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1056;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1057;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1058;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1059;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1060;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1061;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1062;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1063;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1064;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1065;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1066;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1067;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1068;3;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1069;4;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1070;2;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1071;1;100;11;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+/*Szerszámok*/
+
+
+106;Földművelő eszközök;
+107;
+108;
+
+
+1000;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1001;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1002;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1003;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1004;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1005;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1006;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1007;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1008;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1009;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1010;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1011;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1012;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1013;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1014;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1015;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1016;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1017;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1018;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1019;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1020;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1021;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1022;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1023;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1024;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1025;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1026;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1027;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1028;2;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1029;4;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1030;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1031;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1032;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1033;1;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1034;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1035;3;100;12;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+/*Építkezés, berendezés*/
+
+109;Kertibútorok;
+110;Burkolatok;
+111;Dekorációk;
+
+1000;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1001;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1002;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1003;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1004;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1005;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1006;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1007;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1008;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1009;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1010;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1011;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1012;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1013;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1014;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1015;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1016;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1017;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1018;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1019;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1020;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1021;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1022;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1023;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+1024;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1025;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1026;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1027;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1028;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1029;3;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1030;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1031;4;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+1032;1;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1033;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1034;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+1035;2;100;13;Pakrside Elektromos Fűnyíró;19999;Egyszerűen irányítható, könnyű szerkezet, 3 fokozatú vágásmagasság, könnyen levehető gyűjtődoboz;
+
+
+
+*******************************
+TERMÉKFAJTA (18)
+*******************************
+id;nev
+
+100;Fűnyírók;
+101;Kültéri világítás;
+102;
+
+103;Cserepes növények;
+104;Magvak;
+105;Növényápolás, növénytermesztés;
+
+106;Földművelő eszközök;
+107;
+108;
+
+109;Kertibútorok;
+110;Burkolatok;
+111;Dekorációk;
+
+
+*******************************
+KATEGÓRIÁK (6) KÉSZ
+*******************************
+id;nev
+
+10;Elektromos eszközök;
+11;Növények; 
+12;Szerszámok;
+13;Építkezés, berendezés; 
+
+
+*******************************
+FELHASZNÁLÓK (30)
+*******************************
+id;felhasznalonev;nev;hash;so;telefonszam;email;lakcimId;
+
+001;
+002;
+003;
+004;
+005;
+006;
+007;
+008;
+009;
+010;
+011;
+012;
+013;
+014;
+015;
+016;
+017;
+018;
+019;
+020;
+021;
+022;
+023;
+024;
+025;
+026;
+027;
+028;
+029;
+030;
+
+*******************************
+ADMINISZTRÁTOR (3)
+*******************************
+id;termeketHozzaadhat;moderalhat;beosztas;szolgaltatastHozzaadhat;
+
+01;
+02;
+03;
+
+*******************************
+ÜZLET (5)
+*******************************
+id;lakcimId;
+
+1; Szeged
+2; Pécs
+3; Budapest
+4; Nyíregyháza
+5; Kecskemét
+
+*******************************
+ÜZLET NYITVATARTÁS(5)
+*******************************
+uzletId;nyitas;zaras;
+
+1;
+2;
+3;
+4;
+5;
+
+*******************************
+KUPON (5)
+*******************************
+kod;kedvezmeny;lejaratiDatum;
+
+500;
+510;
+520;
+530;
+540;
+
+*******************************
+RENDELÉS (20)
+*******************************
+rendelesSzam;felhasznaloId;mikor;kuponKod;
+
+1010;
+1020;
+1030;
+1040;
+1050;
+1060;
+1070;
+1080;
+1090;
+1100;
+1110;
+1120;
+1130;
+1140;
+1150;
+1160;
+1170;
+1180;
+1190;
+
+
+*******************************
+RENDELÉS TERMÉK (15)
+*******************************
+rendelesSzam;termekId;mennyiseg; //PRIMARY KEY (rendelesSzam, termekId)??
+
+1010;
+1020;
+1030;
+1040;
+1050;
+1060;
+1070;
+1080;
+1090;
+1100;
+1110;
+1120;
+1130;
+1140;
+
+
+*******************************
+SZOLGÁLTATÁS (10)
+*******************************
+id;nev;ar;leiras;
+
+200;
+201;
+202;
+203;
+204;
+205;
+206;
+207;
+208;
+209;
+
+*******************************
+RENDELÉS SZOLGÁLTATÁS (5)
+*******************************
+rendelesSzam;szolgaltatasId; //PRIMARY KEY (rendelesSzam, szolgaltatasId) ??
+
+1150;
+1160;
+1170;
+1180;
+1190;
+
+*******************************
+KISZÁLLÍTÁS (20)
+*******************************
+kiszallitasiSzam;felhasznaloId;atvevoNev;lakcimId;
+
+1010;
+1020;
+1030;
+1040;
+1050;
+1060;
+1070;
+1080;
+1090;
+1100;
+1110;
+1120;
+1130;
+1140;
+1150;
+1160;
+1170;
+1180;
+1190;
+
+*******************************
+ÉRTÉKELÉS (15)
+*******************************
+id;felhasznaloId;termekId;szolgaltatasId;datum;szoveg;csillag;
+
+70;
+71;
+72;
+73;
+74;
+75;
+76;
+77;
+78;
+79;
+80;
+81;
+82;
+83;
+84;
+
+*******************************
+TELJESÍT (20)
+*******************************
+rendelesSzam;kiszallitasiSzam;teljesult; // PRIMARY KEY (rendelesSzam, kiszallitasiSzam) ??
+
+1010;
+1020;
+1030;
+1040;
+1050;
+1060;
+1070;
+1080;
+1090;
+1100;
+1110;
+1120;
+1130;
+1140;
+1150;
+1160;
+1170;
+1180;
+1190;
+
+*******************************
+LAKCÍM (35)
+*******************************
+id;varos;utca;hazszam;
+  
+900;
+901;
+902;
+903;
+904;
+905;
+906;
+907;
+908;
+909;
+910;
+911;
+912;
+913;
+914;
+915;
+916;
+917;
+918;
+919;
+920;
+921;
+922;
+923;
+924;
+925;
+926;
+927;
+928;
+929;
+930;
+931;
+932;
+933;
+934;
+
+
+
+
+LEKÉRDEZÉSEK:
+
+Termékek: 
+- termékek rendezése KATEGÓRIA, ÁR, ÜZLET, TERMÉKFAJTA, NÉV szerint 
+- termékek lekérdezése(szűrése) KATEGÓRIA, ÁR, ÜZLET, TERMÉKFAJTA, NÉV szerint 
+- legjobbra értékelt termékek
+- kategória legjobbja 

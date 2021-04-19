@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viweport" content="width=device-width, initial-scase=1.0"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet"/>
+    <script src="https://kit.fontawesome.com/72a8901417.js" crossorigin="anonymous"></script>
+
+    <title>Kisvakond Kertészbolt</title>    
+  </head>
+  <body>
+
+     <!-- Navigáció -->
+     <div class="main-container">
+      <header>
+        <img class="logo" src="./img/logo.png" alt="logo">
+
+        <p class="logo"> Kisvakond Kertészbolt </p>
+        <img class="logo" src="./img/logo.png" alt="logo">
+          <nav>
+              <ul class="nav_links">
+                <li><a href="index.html">Főoldal</a></li>  
+                <li><a href="kosar.html"> <img class="png"><i class="fas fa-shopping-cart"></i></img></a></li> 
+                <li><a href="profilom.html"><img class="png"><i class="fas fa-user-circle"></i></img></a></li>
+                  <li class= "has-submenu">
+                    <a  href="termekek.html">Termékek</a>  
+                  <ul class="submenu">
+                    <li><a href="novenyek.html">Cserepes növények</a></li>
+                    <li><a href="eszkozok.html">Kertészeti eszközök</a></li>
+                    <li><a href="dekoracio.html">Dekoráció</a></li>
+                  </ul></li>
+              </ul>
+          </nav>
+        
+    </header>
+
+                <div class="container">
+                    <div class="row">
+                              <div class="form-container">
+                                <div class="form-button">
+                                    <span onclick="login()">Belépés</span>
+                                    <span onclick="register()">Regisztráció</span>
+                                    <hr id="Indicator">
+                                </div>
+                                <form id="LoginForm">
+                                    <input type="text" placeholder="Felhasználónév">
+                                    <input type="text" placeholder="Jelszó">
+                                    <button type="submit" class="button">Belépés</button>
+                                    <a href="">Elfelejtettem a jelszavam</a>
+                                </form>
+                                <form id="RegForm">
+                                    <input type="text" placeholder="Felhasználónév">
+                                    <input type="text" placeholder="Név">
+                                    <input type="text" placeholder="Jelszó">
+                                    <input type="text" placeholder="Telefonszám">
+                                    <input type="email" placeholder="Email">
+                                    <input type="text" placeholder="Lakcím">
+                                    <button type="submit" class="button">Regisztráció</button>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+     
+    </div> 
+    <script>
+
+      var LoginForm = document.getElementById("LoginForm");
+      var RegForm = document.getElementById("RegForm");
+      var Indicator = document.getElementById("Indicator");
+
+          function register() {
+              RegForm.style.transform = "translateX(0px)";
+              LoginForm.style.transform = "translateX(0px)";
+              Indicator.style.transform = "translateX(100px)";
+          }
+          function login() {
+              RegForm.style.transform = "translateX(300px)";
+              LoginForm.style.transform = "translateX(300px)";
+              Indicator.style.transform = "translateX(0px)";
+
+          }
+
+  </script>      
+  </body>  
+</html>
