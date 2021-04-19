@@ -1,5 +1,7 @@
-package com.example.kisvakondkerteszbolt;
+package com.example.kisvakondkerteszbolt.controller;
 
+import com.example.kisvakondkerteszbolt.model.Lakcim;
+import com.example.kisvakondkerteszbolt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

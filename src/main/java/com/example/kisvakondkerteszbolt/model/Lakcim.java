@@ -1,4 +1,4 @@
-package com.example.kisvakondkerteszbolt;
+package com.example.kisvakondkerteszbolt.model;
 
 public class Lakcim {
     private int id;
