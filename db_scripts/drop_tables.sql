@@ -1,0 +1,16 @@
+DROP TABLE Teljesit;
+DROP TABLE Ertekeles;
+DROP TABLE Kiszallitas;
+DROP TABLE RendelesSzolgaltatas;
+DROP TABLE Szolgaltatas;
+DROP TABLE RendelesTermek;
+DROP TABLE Termek;
+DROP TABLE TermekFajta;
+DROP TABLE Kategoria;
+DROP TABLE Rendeles;
+DROP TABLE Kupon;
+DROP TABLE UzletNyitvatartas;
+DROP TABLE Uzlet;
+DROP TABLE Adminisztrator;
+DROP TABLE Felhasznalo;
+DROP TABLE Lakcim;
