@@ -92,6 +92,8 @@ public class UserRepository {
             return null;
         }
 
+        user.hash = null;
+
         return user;
     }
 }
