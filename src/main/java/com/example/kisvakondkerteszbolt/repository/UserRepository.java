@@ -4,6 +4,7 @@ import com.example.kisvakondkerteszbolt.SqlQueries;
 import com.example.kisvakondkerteszbolt.model.Felhasznalo;
 import com.example.kisvakondkerteszbolt.model.Lakcim;
 import com.example.kisvakondkerteszbolt.repository.rowmapper.FelhasznaloRowMapper;
+import com.example.kisvakondkerteszbolt.repository.rowmapper.LakcimRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,12 +27,7 @@ public class UserRepository {
     public List<Lakcim> selectAllAddresses() {
         List<Lakcim> result = jdbcTemplate.query(
                 SqlQueries.SELECT_ALL_ADDRESSES,
-                (rs, rowNum) -> new Lakcim(
-                        rs.getInt("id"),
-                        rs.getString("varos"),
-                        rs.getString("utca"),
-                        rs.getString("hazszam")
-                )
+                new LakcimRowMapper()
         );
         return result;
     }
