@@ -16,10 +16,11 @@ function test_request() {
         success: function (data) {
             console.log(data);
             let rows = data.map(x => `<p>${x.varos}, ${x.utca} ${x.hazszam}</p>`);
-            $("#results").html(rows);
+            $("#results").html("<h1>Sikeres hívás</h1>" + rows);
         },
         error: function (e) {
             console.log(e);
+            $('#results').text("<h1>Sikertelen hívás:</h1><br>" + e.toString())
         }
     });
 }
