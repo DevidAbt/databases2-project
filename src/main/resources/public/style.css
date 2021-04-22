@@ -25,7 +25,7 @@ letter-spacing: 20px;
 .main-container {
     width: 100%;
     min-height: 100vh;
-    background-image: url(/img/hatter.jpg);
+    background-image: url(./img/hatter.jpg);
     background-size:cover;
     background-position: center;
     background-attachment: fixed; 
