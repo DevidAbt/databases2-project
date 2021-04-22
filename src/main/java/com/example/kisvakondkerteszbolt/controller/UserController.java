@@ -30,6 +30,14 @@ public class UserController {
         return userRepository.register(user);
     }
 
+    @RequestMapping(value = "/login",
+            method = RequestMethod.POST,
+            produces = "application/json",
+            consumes = {"application/json"})
+    public @ResponseBody
+    Felhasznalo login(@RequestBody Felhasznalo user) {
+        return userRepository.login(user.felhasznalonev, user.hash);
+    }
 
     @GetMapping("/address/all")
     public List<Lakcim> getAddresses() {

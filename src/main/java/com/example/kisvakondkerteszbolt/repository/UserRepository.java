@@ -59,6 +59,7 @@ public class UserRepository {
             return null;
         }
     }
+
     public boolean register(Felhasznalo newUser) {
         Felhasznalo user = selectUserByUsername(newUser.felhasznalonev);
         if (user != null) {
@@ -79,5 +80,18 @@ public class UserRepository {
         );
 
         return true;
+    }
+
+    public Felhasznalo login(String username, String password) {
+        Felhasznalo user = selectUserByUsername(username);
+        if (user == null) {
+            return  null; // user not exists
+        }
+
+        if (!passwordEncoder.matches(password, user.hash)) {
+            return null;
+        }
+
+        return user;
     }
 }

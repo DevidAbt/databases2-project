@@ -5,7 +5,6 @@ public class Felhasznalo {
      public String felhasznalonev;
      public String nev;
      public String hash;
-     public String so;
      public String telefonszam;
      public String email;
      public int lakcimId;
