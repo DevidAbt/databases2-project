@@ -1,6 +1,7 @@
 package com.example.kisvakondkerteszbolt.controller;
 
 import com.example.kisvakondkerteszbolt.model.Kategoria;
+import com.example.kisvakondkerteszbolt.model.Termek;
 import com.example.kisvakondkerteszbolt.model.Termekfajta;
 import com.example.kisvakondkerteszbolt.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,11 @@ public class ProductController {
     public @ResponseBody
     List<Termekfajta> getProductTypes(@RequestParam(value = "kategoriaId") int categoryId) {
         return productRepository.selectProductTypesByCategory(categoryId);
+    }
+
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Termek> getProductsOfProductType(@RequestParam(value = "termekFajtaId") int productTypeId) {
+        return productRepository.selectProductsByProductType(productTypeId);
     }
 }

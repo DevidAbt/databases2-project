@@ -16,6 +16,9 @@ public class SqlQueries {
     // Kategoria
     public static String SELECT_CATEGORIES = "SELECT id, nev FROM SHOP_ADMIN.kategoria";
 
+    //Termek
+    public static String SELECT_PRODUCTS_BY_PRODUCTTYPE = "SELECT id, uzletId, termekFajtaId, kategoriaId, nev, ar, leiras " +
+            "FROM SHOP_ADMIN.Termek WHERE termekFajtaId = ?";
 
 
     // Osszetett lekerdezesek //

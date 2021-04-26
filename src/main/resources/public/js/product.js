@@ -1,5 +1,6 @@
 $(document).ready(function () {
   getCategories();
+  getProductsByType(109);
 });
 
 var categoriesWithTypes = [];
@@ -55,7 +56,7 @@ function updateRows() {
     let types = [];
     category.types.forEach(type => {
         row += `<div class="menu">
-                  <li><a href="funyiro.html">${type.nev}</a></li>
+                  <li><a href="#" onclick="getProductsByType(${type.id});return false;">${type.nev}</a></li>
                   <img class="tkep" src="./img/jacint.jpg" alt="leves" />
                 </div>`;
     });
@@ -66,4 +67,23 @@ function updateRows() {
   });
 
   $("#rows").html(rows.join());
+}
+
+
+function getProductsByType(termekFajtaId) {
+  console.log("getProductsByType called, ", termekFajtaId);
+  $.ajax({
+    type: "GET",
+    url: "/api/product/type/",
+    data: {
+      termekFajtaId: termekFajtaId,
+    },
+    success: function (data) {
+      console.log("getProductsByType: ", data);
+    },
+    error: function (e) {
+      console.log("getProductsByType error");
+      console.log(e);
+    },
+  });
 }
