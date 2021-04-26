@@ -19,6 +19,7 @@ function getCategories() {
       });
     },
     error: function (e) {
+      console.log("getCategories error");
       console.log(e);
     },
   });
@@ -39,6 +40,7 @@ function getProductTypes(kategoria) {
       updateRows();
     },
     error: function (e) {
+      console.log("getProductTypes error");
       console.log(e);
     },
   });

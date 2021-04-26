@@ -1,4 +1,41 @@
 $(document).ready(function () {
+  var userString = sessionStorage.getItem("user");
+  if (userString) {
+    switchToProfile();
+    let user = JSON.parse(userString);
+    console.log(user);
+    fillProfileFields(user);
+  }
+
+  setUpListeners();
+});
+
+function switchToProfile() {
+  $("#loginRegRow").css("display", "none");
+  $("#profileRow").css("display", "block");
+}
+
+function switchToRegLogin() {
+  $("#loginRegRow").css("display", "block");
+  $("#profileRow").css("display", "none");
+}
+
+function fillProfileFields(user) {
+  $("#profileName").text(user.nev);
+  $("#profileUsername").text(user.felhasznalonev);
+  $("#profileTel").text(user.telefonszam);
+  $("#profileEmail").text(user.email);
+
+  getAddress(user.lakcimId);
+}
+
+function fillAddressField(address) {
+  $("#profileAddress").text(
+    address.varos + ",\n" + address.utca + " " + address.hazszam
+  );
+}
+
+function setUpListeners() {
   $("#LoginForm").on("submit", (event) => {
     event.preventDefault();
     let username = $("#loginUsername").val();
@@ -21,9 +58,12 @@ $(document).ready(function () {
 
     return false;
   });
-});
+
+  $("#logoutButton").click(() => logout());
+}
 
 function login(username, password) {
+  console.log("login called");
   $.ajax({
     type: "POST",
     contentType: "application/json",
@@ -33,7 +73,11 @@ function login(username, password) {
     cache: false,
     timeout: 600000,
     success: function (data) {
-      console.log(JSON.stringify(data));
+      console.log("login: ", data);
+      sessionStorage.setItem("user", JSON.stringify(data));
+      fillProfileFields(data);
+      switchToProfile();
+      getAddress(data.lakcimId);
     },
     error: function (e) {
       console.log("login error:");
@@ -44,6 +88,7 @@ function login(username, password) {
 }
 
 function register(username, name, password, tel, email) {
+  console.log("register called");
   $.ajax({
     type: "POST",
     contentType: "application/json",
@@ -61,6 +106,7 @@ function register(username, name, password, tel, email) {
     timeout: 600000,
     success: function (data) {
       let result = JSON.stringify(data);
+      console.log("register: ", result);
       console.log(result);
       if (result == "false") {
         $("#wrongReg").css("display", "block");
@@ -72,4 +118,31 @@ function register(username, name, password, tel, email) {
       $("#wrongReg").css("display", "block");
     },
   });
+}
+
+function getAddress(id) {
+  console.log("getAddress called");
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "/api/user/address",
+    data: {
+      id: id,
+    },
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
+      console.log("getAddress: ", data);
+      fillAddressField(data);
+    },
+    error: function (e) {
+      console.log("getAddress error");
+      console.log(e);
+    },
+  });
+}
+
+function logout() {
+  sessionStorage.removeItem("user");
+  switchToRegLogin();
 }

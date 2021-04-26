@@ -11,6 +11,7 @@ public class SqlQueries {
 
     // Lakcim
     public static String SELECT_ALL_ADDRESSES = "SELECT id, varos, utca, hazszam FROM shop_admin.Lakcim";
+    public static String SELECT_ADDRESSES_BY_ID = "SELECT id, varos, utca, hazszam FROM shop_admin.Lakcim WHERE id = ?";
 
     // Kategoria
     public static String SELECT_CATEGORIES = "SELECT id, nev FROM SHOP_ADMIN.kategoria";

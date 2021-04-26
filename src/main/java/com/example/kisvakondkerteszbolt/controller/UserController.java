@@ -44,4 +44,10 @@ public class UserController {
         return userRepository.selectAllAddresses();
     }
 
+    @RequestMapping(value = "/address", method = RequestMethod.GET)
+    public @ResponseBody
+    Lakcim getAddress(@RequestParam(value = "id") int id) {
+        return userRepository.selectAddressById(id);
+    }
+
 }

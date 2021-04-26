@@ -43,7 +43,7 @@
       </header>
 
       <div class="container">
-        <div class="row">
+        <div id="loginRegRow" class="row">
           <div class="form-container">
             <div class="form-button">
               <span onclick="setLoginForm()" style="cursor: grab;">Belépés</span>
@@ -52,7 +52,7 @@
             </div>
             <form id="LoginForm">
               <input id="loginUsername" type="text" placeholder="Felhasználónév" />
-              <input id="loginPassword" type="text" placeholder="Jelszó" />
+              <input id="loginPassword" type="password" placeholder="Jelszó" />
               <button type="submit" class="button">Belépés</button>
               <div id="wrongLogin" style="color: red; display: none;">Hibás felhasználónév vagy jelszó</div>
               <!-- <a href="">Elfelejtettem a jelszavam</a> -->
@@ -60,13 +60,23 @@
             <form id="RegForm">
               <input id="regUsername" type="text" placeholder="Felhasználónév" />
               <input id="regName" type="text" placeholder="Név" />
-              <input id="regPassword" type="text" placeholder="Jelszó" />
+              <input id="regPassword" type="password" placeholder="Jelszó" />
               <input id="regTel" type="text" placeholder="Telefonszám" />
               <input id="regEmail" type="email" placeholder="Email" />
               <input type="text" placeholder="Lakcím" />
               <button type="submit" class="button">Regisztráció</button>
               <div id="wrongReg" style="color: red; display: none;">Sikertelen regisztráció</div>
             </form>
+          </div>
+        </div>
+        <div style="display: none;" id="profileRow" class="row">
+          <div class="form-container" style="text-align: center; margin: auto; padding: 3%;">
+            <h2 id="profileName" class="profile-field" style="font-size: 30px;"></h2>
+            <h3 id="profileUsername" class="profile-field"></h3>
+            <h3 id="profileTel" class="profile-field"></h3>
+            <h3 id="profileEmail" class="profile-field"></h3>
+            <h3 id="profileAddress" class="profile-field" style="margin-top: 20%;"></h3>
+            <button id="logoutButton" type="button" style="margin-top: 30%;" class="button">Kijelentkezés</button>
           </div>
         </div>
       </div>

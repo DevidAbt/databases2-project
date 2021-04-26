@@ -32,6 +32,18 @@ public class UserRepository {
         return result;
     }
 
+    public Lakcim selectAddressById(int id) {
+        try {
+            return  (Lakcim) jdbcTemplate.queryForObject(
+                    SqlQueries.SELECT_ADDRESSES_BY_ID,
+                    new Object[]{id},
+                    new LakcimRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
     public Felhasznalo selectUser(int id) {
         try {
             return  (Felhasznalo) jdbcTemplate.queryForObject(
