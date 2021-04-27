@@ -51,5 +51,9 @@ public class SqlQueries {
             "INNER JOIN SHOP_ADMIN.Kategoria ON SHOP_ADMIN.Termek.kategoriaId = SHOP_ADMIN.Kategoria.id\n" +
             "INNER JOIN SHOP_ADMIN.Termekfajta ON SHOP_ADMIN.Termek.termekFajtaId = SHOP_ADMIN.Termekfajta.id\n" +
             "WHERE SHOP_ADMIN.Termek.nev LIKE ?";
+    public static String SELECT_SHOPS = "Uzlet.id, UzletNyitvatartas.nyitas, UzletNyitvatartas.zaras, Lakcim.varos,Lakcim.utca,Lakcim.hazszam\n"+
+            "FROM SHOP_ADMIN.Uzlet, SHOP_ADMIN.Lakcim, SHOP_ADMIN.UzletNyitvatartas\n"+
+            "WHERE SHOP_ADMIN.Uzlet.id=SHOP_ADMIN.UzletNyitvatartas.uzletid and SHOP_ADMIN.Uzlet.lakcimid=SHOP_ADMIN.Lakcim.id\n"+
+            "GROUP BY SHOP_ADMIN.Uzlet.id";
 
 }
