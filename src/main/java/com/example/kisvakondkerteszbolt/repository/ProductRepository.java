@@ -73,4 +73,13 @@ public class ProductRepository {
             return null;
         }
     }
+
+    public List<TermekInfo> selectProductsInfoByName(String name) {
+        List<TermekInfo> result = jdbcTemplate.query(
+                SqlQueries.SELECT_PRODUCTS_INFO_BY_NAME,
+                new Object[]{"%" + name + "%"},
+                new TermekInfoRowMapper()
+        );
+        return result;
+    }
 }

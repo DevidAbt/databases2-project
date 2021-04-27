@@ -41,5 +41,11 @@ public class SqlQueries {
             "INNER JOIN SHOP_ADMIN.Termek ON SHOP_ADMIN.Termek.uzletId = SHOP_ADMIN.Uzlet.id\n" +
             "INNER JOIN SHOP_ADMIN.Uzletnyitvatartas ON SHOP_ADMIN.Uzlet.id = SHOP_ADMIN.Uzletnyitvatartas.uzletId\n" +
             "WHERE SHOP_ADMIN.Termek.id = ?";
+    public static String SELECT_PRODUCTS_INFO_BY_NAME = "SELECT SHOP_ADMIN.Termek.id, SHOP_ADMIN.Kategoria.nev AS kategoria, \n" +
+            "SHOP_ADMIN.Termekfajta.nev as termekFajta, uzletId, SHOP_ADMIN.Termek.nev, ar, leiras\n" +
+            "FROM SHOP_ADMIN.Termek \n" +
+            "INNER JOIN SHOP_ADMIN.Kategoria ON SHOP_ADMIN.Termek.kategoriaId = SHOP_ADMIN.Kategoria.id\n" +
+            "INNER JOIN SHOP_ADMIN.Termekfajta ON SHOP_ADMIN.Termek.termekFajtaId = SHOP_ADMIN.Termekfajta.id\n" +
+            "WHERE SHOP_ADMIN.Termek.nev LIKE ?";
 
 }

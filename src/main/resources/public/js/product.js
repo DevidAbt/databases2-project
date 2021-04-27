@@ -1,10 +1,13 @@
 $(document).ready(function () {
   getCategories();
+
+  setUpListeners();
 });
 
 function switchToProductInfo() {
   $("#category-rows").css("display", "none");
   $("#product-table").css("display", "block");
+  $("#search-row").css("display", "none");
 }
 
 function switchToCategoryRows() {
@@ -12,6 +15,14 @@ function switchToCategoryRows() {
   $("#product-table").css("display", "none");
   $("#shop-table").css("display", "none");
   $("#shop-table").html("");
+  $("#search-row").css("display", "block");
+}
+
+function setUpListeners() {
+  $("#searchButton").click(() => {
+    let searchInput = $("#searchInput").val();
+    getShopInfoByName(searchInput);
+  });
 }
 
 var categoriesWithTypes = [];
@@ -193,4 +204,25 @@ function updateShopTable(shop) {
 
   $("#shop-table").html(table);
   $("#shop-table").css("display", "block");
+}
+
+
+function getShopInfoByName(nev) {
+  console.log("getShopInfoByName called, ", nev);
+  $.ajax({
+    type: "GET",
+    url: "/api/product/search/name",
+    data: {
+      nev: nev,
+    },
+    success: function (data) {
+      console.log("getShopInfoByName: ", data);
+      updateProductTable(data);
+      switchToProductInfo();
+    },
+    error: function (e) {
+      console.log("getShopInfoByName error");
+      console.log(e);
+    },
+  });
 }

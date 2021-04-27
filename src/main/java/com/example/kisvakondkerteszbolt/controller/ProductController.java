@@ -50,4 +50,10 @@ public class ProductController {
         UzletInfo ui = productRepository.selectShopInfoByProduct(productId);
         return ui;
     }
+
+    @RequestMapping(value = "/search/name", method = RequestMethod.GET)
+    public @ResponseBody
+    List<TermekInfo> getProductsInfoByName(@RequestParam(value = "nev") String name) {
+        return productRepository.selectProductsInfoByName(name);
+    }
 }
