@@ -47,13 +47,18 @@ public class ProductController {
     @RequestMapping(value = "/shop/info", method = RequestMethod.GET)
     public @ResponseBody
     UzletInfo getShopInfoByProduct(@RequestParam(value = "termekId") int productId) {
-        UzletInfo ui = productRepository.selectShopInfoByProduct(productId);
-        return ui;
+        return productRepository.selectShopInfoByProduct(productId);
     }
 
     @RequestMapping(value = "/search/name", method = RequestMethod.GET)
     public @ResponseBody
     List<TermekInfo> getProductsInfoByName(@RequestParam(value = "nev") String name) {
         return productRepository.selectProductsInfoByName(name);
+    }
+
+    @RequestMapping(value = "/ratings", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Ertekeles> getRatings(@RequestParam(value = "termekId") int productId) {
+        return productRepository.selectRatings(productId);
     }
 }

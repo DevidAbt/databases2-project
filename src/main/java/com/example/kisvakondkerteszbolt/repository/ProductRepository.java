@@ -82,4 +82,22 @@ public class ProductRepository {
         );
         return result;
     }
+
+    public List<Ertekeles> selectRatings(int productId) {
+        List<Ertekeles> result = jdbcTemplate.query(
+                SqlQueries.SELECT_RATINGS,
+                new Object[]{productId, productId},
+                new ErtekelesRowMapper()
+        );
+        return result;
+//        try {
+//            return  (Ertekeles) jdbcTemplate.queryForObject(
+//                    SqlQueries.SELECT_RATING,
+//                    new Object[]{productId, productId},
+//                    new ErtekelesRowMapper()
+//            );
+//        } catch (EmptyResultDataAccessException e) {
+//            return null;
+//        }
+    }
 }

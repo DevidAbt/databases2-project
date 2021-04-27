@@ -19,6 +19,8 @@ function switchToCategoryRows() {
   $("#product-table").css("display", "none");
   $("#shop-table").css("display", "none");
   $("#shop-table").html("");
+  $("#ratings-table").css("display", "none");
+  $("#ratings-table").html("");
   $("#search-row").css("display", "block");
 }
 
@@ -141,12 +143,12 @@ function updateProductTable(products) {
                 </td>
                 <td>${product.nev}</td>
                 <td>${product.id}</td>
-                <td><a href="#" onclick="getShopInfoByProduct(${product.id});return false;">UZLET</a></td>
+                <td><a href="#" onclick="getShopInfoByProduct(${product.id});return false;">ÜZLET</a></td>
                 <td>${product.termekFajta}</td>
                 <td>${product.kategoria}</td>
                 <td>${product.ar}</td>
                 <td>${product.leiras}</td>
-                <td>Ertekeles</td>
+                <td><a href="#" onclick="getRatings(${product.id});return false;">ÉRTÉKELÉS</a></td>
                 <td>
                   <input type="number" style="width: 35px" min="1" value="1">
                   <button onclick="toCart(${product.id})">KOSÁRBA</button>
@@ -213,6 +215,7 @@ function updateShopTable(shop) {
 
   $("#shop-table").html(table);
   $("#shop-table").css("display", "block");
+  $("#ratings-table").css("display", "none");
 }
 
 function getShopInfoByName(nev) {
@@ -241,4 +244,51 @@ function toCart(id) {
   let mennyiseg = parseInt($(`#product-${product.id} > td > input`).val());
   product.mennyiseg = mennyiseg;
   addToCart(product);
+}
+
+function getRatings(productId) {
+  console.log("getRatings called, ", productId);
+  $.ajax({
+    type: "GET",
+    url: "/api/product/ratings",
+    data: {
+      termekId: productId,
+    },
+    success: function (data) {
+      console.log("getRatings: ", data);
+      updateRatingsTable(data);
+    },
+    error: function (e) {
+      console.log("getRatings error");
+      console.log(e);
+    },
+  });
+}
+
+function updateRatingsTable(ratings) {
+  let table = `<div class="row">
+                <div class="content">
+                  <main>
+                    <div class="kert">
+                      <table>`;
+  table += `<tr class="termek-box">
+              <td>CSILLAG</td>
+              <td>SZÖVEG</td>
+              <td>DÁTUM</td>
+            </tr>`;
+  ratings.forEach((rating) => {
+    table += `<tr class="termek-box">
+              <td>${rating.csillag}/10</td>
+              <td>${rating.szoveg}</td>
+              <td>${rating.datum}</td>`;
+  });
+  table += `</table>
+          </div>
+        </main>
+      </div>
+    </div>`;
+
+  $("#ratings-table").html(table);
+  $("#ratings-table").css("display", "block");
+  $("#shop-table").css("display", "none");
 }

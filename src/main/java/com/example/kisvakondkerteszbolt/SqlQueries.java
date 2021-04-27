@@ -16,10 +16,14 @@ public class SqlQueries {
     // Kategoria
     public static String SELECT_CATEGORIES = "SELECT id, nev FROM SHOP_ADMIN.kategoria";
 
-    //Termek
+    // Termek
     public static String SELECT_PRODUCTS_BY_PRODUCTTYPE = "SELECT id, uzletId, termekFajtaId, kategoriaId, nev, ar, leiras " +
             "FROM SHOP_ADMIN.Termek WHERE termekFajtaId = ?";
 
+    // Ertekeles
+    public static String SELECT_RATINGS = "SELECT id, felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag \n" +
+            "FROM SHOP_ADMIN.Ertekeles\n" +
+            "WHERE termekId = ? OR szolgaltatasId = ?";
 
     // Osszetett lekerdezesek //
     public static String SELECT_PRODUCTTYPE_BY_CATEGORY = "SELECT id, nev FROM SHOP_ADMIN.Termekfajta WHERE id IN " +
