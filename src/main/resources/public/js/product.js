@@ -1,6 +1,10 @@
 $(document).ready(function () {
   getCategories();
 
+  $.getScript("./js/cart.js", () => {
+    getCart();
+  });
+
   setUpListeners();
 });
 
@@ -26,6 +30,7 @@ function setUpListeners() {
 }
 
 var categoriesWithTypes = [];
+var currentProducts = [];
 
 function getCategories() {
   console.log("getCategories called");
@@ -111,6 +116,7 @@ function getProductsInfo(termekFajtaId) {
 }
 
 function updateProductTable(products) {
+  currentProducts = products;
   let table = `<div class="row">
                 <div class="content">
                   <main>
@@ -126,10 +132,10 @@ function updateProductTable(products) {
               <td>ÁR</td>
               <td>LEÍRÁS</td>
               <td>ÉRTÉKELÉS</td>
-              <td>MEGVESZEM</td>
+              <td></td>
             </tr>`;
   products.forEach((product) => {
-    table += `<tr class="termek-box">
+    table += `<tr id="product-${product.id}" class="termek-box">
                 <td>
                   <img src="./img/torpe.jpg" alt="jacint" />
                 </td>
@@ -141,7 +147,10 @@ function updateProductTable(products) {
                 <td>${product.ar}</td>
                 <td>${product.leiras}</td>
                 <td>Ertekeles</td>
-                <td><button>MEGVESZEM</button></td>
+                <td>
+                  <input type="number" style="width: 35px" min="1" value="1">
+                  <button onclick="toCart(${product.id})">KOSÁRBA</button>
+                </td>
                 `;
   });
   table += `</table>
@@ -206,7 +215,6 @@ function updateShopTable(shop) {
   $("#shop-table").css("display", "block");
 }
 
-
 function getShopInfoByName(nev) {
   console.log("getShopInfoByName called, ", nev);
   $.ajax({
@@ -225,4 +233,12 @@ function getShopInfoByName(nev) {
       console.log(e);
     },
   });
+}
+
+function toCart(id) {
+  console.log("toCart called, ", id);
+  let product = currentProducts.filter((x) => x.id == id)[0];
+  let mennyiseg = parseInt($(`#product-${product.id} > td > input`).val());
+  product.mennyiseg = mennyiseg;
+  addToCart(product);
 }
