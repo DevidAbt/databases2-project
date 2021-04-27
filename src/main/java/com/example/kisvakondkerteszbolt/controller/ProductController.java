@@ -1,8 +1,6 @@
 package com.example.kisvakondkerteszbolt.controller;
 
-import com.example.kisvakondkerteszbolt.model.Kategoria;
-import com.example.kisvakondkerteszbolt.model.Termek;
-import com.example.kisvakondkerteszbolt.model.Termekfajta;
+import com.example.kisvakondkerteszbolt.model.*;
 import com.example.kisvakondkerteszbolt.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -32,5 +30,24 @@ public class ProductController {
     public @ResponseBody
     List<Termek> getProductsOfProductType(@RequestParam(value = "termekFajtaId") int productTypeId) {
         return productRepository.selectProductsByProductType(productTypeId);
+    }
+
+    @RequestMapping(value = "/type/info", method = RequestMethod.GET)
+    public @ResponseBody
+    List<TermekInfo> getProductsInfo(@RequestParam(value = "termekFajtaId") int productTypeId) {
+        return productRepository.selectProductsInfo(productTypeId);
+    }
+
+    @RequestMapping(value = "/shop", method = RequestMethod.GET)
+    public @ResponseBody
+    Lakcim getShopByProduct(@RequestParam(value = "termekId") int productId) {
+        return productRepository.selectShopByProduct(productId);
+    }
+
+    @RequestMapping(value = "/shop/info", method = RequestMethod.GET)
+    public @ResponseBody
+    UzletInfo getShopInfoByProduct(@RequestParam(value = "termekId") int productId) {
+        UzletInfo ui = productRepository.selectShopInfoByProduct(productId);
+        return ui;
     }
 }

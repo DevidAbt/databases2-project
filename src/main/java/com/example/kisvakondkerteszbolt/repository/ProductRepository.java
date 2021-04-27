@@ -1,14 +1,10 @@
 package com.example.kisvakondkerteszbolt.repository;
 
 import com.example.kisvakondkerteszbolt.SqlQueries;
-import com.example.kisvakondkerteszbolt.model.Kategoria;
-import com.example.kisvakondkerteszbolt.model.Termek;
-import com.example.kisvakondkerteszbolt.model.Termekfajta;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.KategoriaRowMapper;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.LakcimRowMapper;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.TermekRowMapper;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.TermekfajtaRowMapper;
+import com.example.kisvakondkerteszbolt.model.*;
+import com.example.kisvakondkerteszbolt.repository.rowmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -43,5 +39,38 @@ public class ProductRepository {
                 new TermekRowMapper()
         );
         return result;
+    }
+
+    public List<TermekInfo> selectProductsInfo(int productTypeId) {
+        List<TermekInfo> result = jdbcTemplate.query(
+                SqlQueries.SELECT_PRODUCTS_INFO,
+                new Object[]{productTypeId},
+                new TermekInfoRowMapper()
+        );
+        return result;
+    }
+
+    public Lakcim selectShopByProduct(int productId) {
+        try {
+            return  (Lakcim) jdbcTemplate.queryForObject(
+                    SqlQueries.SELECT_SHOP_BY_PRODUCT,
+                    new Object[]{productId},
+                    new LakcimRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public UzletInfo selectShopInfoByProduct(int productId) {
+        try {
+            return  (UzletInfo) jdbcTemplate.queryForObject(
+                    SqlQueries.SELECT_SHOP_INFO_BY_PRODUCT,
+                    new Object[]{productId},
+                    new UzletInfoRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }

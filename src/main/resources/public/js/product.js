@@ -1,7 +1,18 @@
 $(document).ready(function () {
   getCategories();
-  getProductsByType(109);
 });
+
+function switchToProductInfo() {
+  $("#category-rows").css("display", "none");
+  $("#product-table").css("display", "block");
+}
+
+function switchToCategoryRows() {
+  $("#category-rows").css("display", "block");
+  $("#product-table").css("display", "none");
+  $("#shop-table").css("display", "none");
+  $("#shop-table").html("");
+}
 
 var categoriesWithTypes = [];
 
@@ -38,7 +49,7 @@ function getProductTypes(kategoria) {
       console.log("getProductTypes: ", data);
       kategoria.types = data;
       categoriesWithTypes.push(kategoria);
-      updateRows();
+      updateCategoryRows();
     },
     error: function (e) {
       console.log("getProductTypes error");
@@ -47,16 +58,15 @@ function getProductTypes(kategoria) {
   });
 }
 
-function updateRows() {
+function updateCategoryRows() {
   let rows = [];
   categoriesWithTypes.forEach((category) => {
     let row = `<div class="row">
                  <div class="garden">
                    <h2>${category.nev}</h2>`;
-    let types = [];
-    category.types.forEach(type => {
-        row += `<div class="menu">
-                  <li><a href="#" onclick="getProductsByType(${type.id});return false;">${type.nev}</a></li>
+    category.types.forEach((type) => {
+      row += `<div class="menu">
+                  <li><a href="#" onclick="getProductsInfo(${type.id});return false;">${type.nev}</a></li>
                   <img class="tkep" src="./img/jacint.jpg" alt="leves" />
                 </div>`;
     });
@@ -66,24 +76,121 @@ function updateRows() {
     rows.push(row);
   });
 
-  $("#rows").html(rows.join());
+  $("#category-rows").html(rows.join());
 }
 
-
-function getProductsByType(termekFajtaId) {
-  console.log("getProductsByType called, ", termekFajtaId);
+function getProductsInfo(termekFajtaId) {
+  console.log("getProductsInfo called, ", termekFajtaId);
   $.ajax({
     type: "GET",
-    url: "/api/product/type/",
+    url: "/api/product/type/info",
     data: {
       termekFajtaId: termekFajtaId,
     },
     success: function (data) {
-      console.log("getProductsByType: ", data);
+      console.log("getProductsInfo: ", data);
+      updateProductTable(data);
+      switchToProductInfo();
     },
     error: function (e) {
-      console.log("getProductsByType error");
+      console.log("getProductsInfo error");
       console.log(e);
     },
   });
+}
+
+function updateProductTable(products) {
+  let table = `<div class="row">
+                <div class="content">
+                  <main>
+                    <div class="kert">
+                      <table>`;
+  table += `<tr class="termek-box">
+              <td>KÉP</td>
+              <td>NÉV</td>
+              <td>TERMÉKKÓD</td>
+              <td>ÜZLET, AHOL KAPHATÓ</td>
+              <td>TERMÉKFAJTA</td>
+              <td>KATEGÓRIA</td>
+              <td>ÁR</td>
+              <td>LEÍRÁS</td>
+              <td>ÉRTÉKELÉS</td>
+              <td>MEGVESZEM</td>
+            </tr>`;
+  products.forEach((product) => {
+    table += `<tr class="termek-box">
+                <td>
+                  <img src="./img/torpe.jpg" alt="jacint" />
+                </td>
+                <td>${product.nev}</td>
+                <td>${product.id}</td>
+                <td><a href="#" onclick="getShopInfoByProduct(${product.id});return false;">UZLET</a></td>
+                <td>${product.termekFajta}</td>
+                <td>${product.kategoria}</td>
+                <td>${product.ar}</td>
+                <td>${product.leiras}</td>
+                <td>Ertekeles</td>
+                <td><button>MEGVESZEM</button></td>
+                `;
+  });
+  table += `</table>
+          </div>
+        </main>
+        <button style="margin: auto;display: block;"
+          onclick="switchToCategoryRows()">Vissza</button>
+      </div>
+    </div>`;
+
+  $("#product-table").html(table);
+}
+
+function getShopInfoByProduct(termekId) {
+  console.log("getShopInfoByProduct called, ", termekId);
+  $.ajax({
+    type: "GET",
+    url: "/api/product/shop/info",
+    data: {
+      termekId: termekId,
+    },
+    success: function (data) {
+      console.log("getShopInfoByProduct: ", data);
+      updateShopTable(data);
+    },
+    error: function (e) {
+      console.log("getShopInfoByProduct error");
+      console.log(e);
+    },
+  });
+}
+
+function updateShopTable(shop) {
+  let table = `<div class="row">
+                <div class="content">
+                  <main>
+                    <div class="kert">
+                      <table>`;
+  table += `<tr class="termek-box">
+              <td>ÜZLETKÓD</td>
+              <td>VÁROS</td>
+              <td>UTCA</td>
+              <td>HÁZSZÁM</td>
+              <td>NYITÁS</td>
+              <td>ZÁRÁS</td>
+            </tr>`;
+  table += `<tr class="termek-box">
+              <td>${shop.id}</td>
+              <td>${shop.varos}</td>
+              <td>${shop.utca}</td>
+              <td>${shop.hazszam}</td>
+              <td>${shop.nyitas}</td>
+              <td>${shop.zaras}</td>
+              `;
+  table += `</table>
+          </div>
+        </main>
+      </div>
+    </div>`;
+
+  $("#shop-table").html(table);
+  $("#shop-table").css("display", "block");
 }
