@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    var user = sessionStorage.getItem("user");
+    if (!user) {
+        window.location.replace("./profilom.html");
+    }
   $.getScript("./js/cart.js", () => {
     let cart = getCart();
     updateCartTable(cart ? cart : []);

@@ -122,6 +122,7 @@ function updateProductTable(products) {
   let table = `<div class="row">
                 <div class="content">
                   <main>
+                    <h2>Termékek</h2>
                     <div class="kert">
                       <table>`;
   table += `<tr class="termek-box">
@@ -189,6 +190,7 @@ function updateShopTable(shop) {
   let table = `<div class="row">
                 <div class="content">
                   <main>
+                    <h2>Üzletek</h2>
                     <div class="kert">
                       <table>`;
   table += `<tr class="termek-box">
@@ -269,6 +271,7 @@ function updateRatingsTable(ratings) {
   let table = `<div class="row">
                 <div class="content">
                   <main>
+                    <h2>Értékelések</h2>
                     <div class="kert">
                       <table>`;
   table += `<tr class="termek-box">

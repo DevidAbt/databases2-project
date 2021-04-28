@@ -1,4 +1,8 @@
 function addToCart(product) {
+  var user = sessionStorage.getItem("user");
+  if (!user) {
+    window.location.replace("./profilom.html");
+  }
   console.log("addToCart called, ", product);
   let cartString = sessionStorage.getItem("cart");
   if (cartString) {
