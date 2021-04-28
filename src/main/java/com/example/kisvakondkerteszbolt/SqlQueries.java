@@ -84,7 +84,19 @@ public class SqlQueries {
             "FROM SHOP_ADMIN.Teljesit\n"+
             "INNER JOIN SHOP_ADMIN.Rendeles ON SHOP_ADMIN.Teljesit.rendelesszam=SHOP_ADMIN.Rendeles.rendelesszam\n"+
             "INNER JOIN SHOP_ADMIN.Kiszallitas ON SHOP_ADMIN.Teljesit.kiszallitasiszam=SHOP_ADMIN.Kiszallitas.kiszallitasiszam\n"+
-            "INNER JOIN SHOP_ADMIN.Felhasznalo ON Rendeles.felhasznaloid=SHOP_ADMIN.Felhasznalo.id\n"+
+            "INNER JOIN SHOP_ADMIN.Felhasznalo ON SHOP_ADMIN.Rendeles.felhasznaloid=SHOP_ADMIN.Felhasznalo.id\n"+
             "INNER JOIN SHOP_ADMIN.Lakcim ON SHOP_ADMIN.Kiszallitas.lakcimid=SHOP_ADMIN.Lakcim.id\n"+
             "WHERE SHOP_ADMIN.Felhasznalo.id=?";
+    public static String SELECT_RATINGS_BY_USER = "SELECT SHOP_ADMIN.Ertekeles.*, SHOP_ADMIN.Felhasznalo.felhasznalonev,SHOP_ADMIN.Felhasznalo.email, SHOP_ADMIN.Termek.nev, SHOP_ADMIN.Szolgaltatas.nev\n"+
+            "FROM SHOP_ADMIN.Ertekeles\n"+
+            "INNER JOIN SHOP_ADMIN.Felhasznalo ON SHOP_ADMIN.Ertekeles.felhasznaloid=SHOP_ADMIN.felhasznalo.id\n"+
+            "LEFT JOIN SHOP_ADMIN.Termek ON SHOP_ADMIN.Ertekeles.termekid=SHOP_ADMIN.Termek.id\n"+
+            "LEFT JOIN SHOP_ADMIN.Szolgaltatas ON SHOP_ADMIN.Ertekeles.szolgaltatasid=SHOP_ADMIN.Szolgaltatas.id\n"+
+            "WHERE SHOP_ADMIN.Felhasznalo.id=?";
+    public static String SELECT_ORDER_BY_ADDRESS = "SELECT SHOP_ADMIN.Kiszallitas.kiszallitasiszam, SHOP_ADMIN.Kiszallitas.atvevonev, SHOP_ADMIN.Kiszallitas.lakcimid, SHOP_ADMIN.Felhasznalo.nev, SHOP_ADMIN.Felhasznalo.id, SHOP_ADMIN.Rendeles.rendelesszam, SHOP_ADMIN.Rendeles.mikor, SHOP_ADMIN.Rendeles.kuponkod, SHOP_ADMIN.Lakcim.varos, SHOP_ADMIN.Lakcim.utca, SHOP_ADMIN.Lakcim.hazszam\n"+
+            "FROM SHOP_ADMIN.Rendeles\n"+
+            "INNER JOIN SHOP_ADMIN.Felhasznalo ON SHOP_ADMIN.Rendeles.felhasznaloid=SHOP_ADMIN.felhasznalo.id\n"+
+            "INNER JOIN SHOP_ADMIN.Kiszallitas ON SHOP_ADMIN.Felhasznalo.id=SHOP_ADMIN.Kiszallitas.felhasznaloid\n"+
+            "INNER JOIN SHOP_ADMIN.Lakcim ON SHOP_ADMIN.Kiszallitas.lakcimid=SHOP_ADMIN.Lakcim.id\n"+
+            "WHERE SHOP_ADMIN.Lakcim.id=?";
 }
