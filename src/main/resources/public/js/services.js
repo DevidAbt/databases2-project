@@ -65,7 +65,6 @@ function updateServicesTable(services) {
                 <td>${service.leiras}</td>
                 <td><a href="#" onclick="getRatings(${service.id});return false;">ÉRTÉKELÉS</a></td>
                 <td>
-                  <input type="number" style="width: 35px" min="1" value="1">
                   <button onclick="toCart(${service.id})">KOSÁRBA</button>
                 </td>
                 `;
@@ -84,8 +83,9 @@ function updateServicesTable(services) {
 function toCart(id) {
   console.log("toCart called, ", id);
   let service = currentServices.filter((x) => x.id == id)[0];
-  let mennyiseg = parseInt($(`#service-${service.id} > td > input`).val());
-  service.mennyiseg = mennyiseg;
+  //   let mennyiseg = parseInt($(`#service-${service.id} > td > input`).val());
+  //   service.mennyiseg = mennyiseg;
+  service.mennyiseg = 1;
   addToCart(service);
 }
 

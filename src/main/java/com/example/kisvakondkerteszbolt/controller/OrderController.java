@@ -20,7 +20,7 @@ public class OrderController {
     @Autowired
     OrderRepository orderRepository;
 
-    @RequestMapping(value = "/",
+    @RequestMapping(value = "/place",
             method = RequestMethod.POST,
             produces = "application/json",
             consumes = {"application/json"})
@@ -34,8 +34,9 @@ public class OrderController {
             produces = "application/json",
             consumes = {"application/json"})
     public @ResponseBody
-    void orderProducts(@RequestBody List<TermekMennyiseg> termekMennyiseg) {
+    boolean orderProducts(@RequestBody List<TermekMennyiseg> termekMennyiseg) {
         orderRepository.orderProducts(termekMennyiseg);
+        return true;
     }
 
     @RequestMapping(value = "/services",
@@ -43,7 +44,8 @@ public class OrderController {
             produces = "application/json",
             consumes = {"application/json"})
     public @ResponseBody
-    void orderServices(@RequestBody List<Integer> serviceIds) {
+    boolean orderServices(@RequestBody List<Integer> serviceIds) {
         orderRepository.orderServices(serviceIds);
+        return true;
     }
 }
