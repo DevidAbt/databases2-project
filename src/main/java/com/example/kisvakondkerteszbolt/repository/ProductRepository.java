@@ -90,14 +90,5 @@ public class ProductRepository {
                 new ErtekelesRowMapper()
         );
         return result;
-//        try {
-//            return  (Ertekeles) jdbcTemplate.queryForObject(
-//                    SqlQueries.SELECT_RATING,
-//                    new Object[]{productId, productId},
-//                    new ErtekelesRowMapper()
-//            );
-//        } catch (EmptyResultDataAccessException e) {
-//            return null;
-//        }
     }
 }

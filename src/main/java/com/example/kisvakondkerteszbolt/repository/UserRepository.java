@@ -78,7 +78,6 @@ public class UserRepository {
 
         jdbcTemplate.update(
                 SqlQueries.INSERT_USER,
-                newUser.id,
                 newUser.felhasznalonev,
                 newUser.nev,
                 passwordHash,
