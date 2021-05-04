@@ -53,8 +53,11 @@ function setUpListeners() {
     let password = $("#regPassword").val();
     let tel = $("#regTel").val();
     let email = $("#regEmail").val();
+    let city = $("#regCity").val();
+    let street = $("#regStreet").val();
+    let number = $("#regNumber").val();
 
-    register(username, name, password, tel, email);
+    register(username, name, password, tel, email, city, street, number);
 
     return false;
   });
@@ -87,7 +90,7 @@ function login(username, password) {
   });
 }
 
-function register(username, name, password, tel, email) {
+function register(username, name, password, tel, email, city, street, number) {
   console.log("register called");
   $.ajax({
     type: "POST",
@@ -100,6 +103,9 @@ function register(username, name, password, tel, email) {
       telefonszam: tel,
       email: email,
       lakcimId: 900,
+      varos: city,
+      utca: street,
+      hazszam: number,
     }),
     dataType: "json",
     cache: false,

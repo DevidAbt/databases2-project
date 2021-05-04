@@ -13,6 +13,7 @@ public class SqlQueries {
     // Lakcim
     public static String SELECT_ALL_ADDRESSES = "SELECT id, varos, utca, hazszam FROM shop_admin.Lakcim";
     public static String SELECT_ADDRESSES_BY_ID = "SELECT id, varos, utca, hazszam FROM shop_admin.Lakcim WHERE id = ?";
+    public static String INSERT_ADDRESS = "INSERT INTO SHOP_ADMIN.Lakcim (varos, utca, hazszam) VALUES (?, ?, ?)";
 
     // Kategoria
     public static String SELECT_CATEGORIES = "SELECT id, nev FROM SHOP_ADMIN.kategoria";
@@ -100,4 +101,11 @@ public class SqlQueries {
             "INNER JOIN SHOP_ADMIN.Kiszallitas ON SHOP_ADMIN.Felhasznalo.id=SHOP_ADMIN.Kiszallitas.felhasznaloid\n"+
             "INNER JOIN SHOP_ADMIN.Lakcim ON SHOP_ADMIN.Kiszallitas.lakcimid=SHOP_ADMIN.Lakcim.id\n"+
             "WHERE SHOP_ADMIN.Lakcim.id=?";
+
+
+    // Fuggvenyhivas //
+    public static String REGISTER = "BEGIN\n" +
+            "    REGISTER(?, ?, ?, ?, ?, ?, ?, ?);\n" +
+            "END;";
+
 }

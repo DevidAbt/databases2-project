@@ -1,6 +1,7 @@
 package com.example.kisvakondkerteszbolt.controller;
 
 import com.example.kisvakondkerteszbolt.model.Felhasznalo;
+import com.example.kisvakondkerteszbolt.model.FelhasznaloInfo;
 import com.example.kisvakondkerteszbolt.model.Lakcim;
 import com.example.kisvakondkerteszbolt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,8 @@ public class UserController {
             produces = "application/json",
             consumes = {"application/json"})
     public @ResponseBody
-    boolean register(@RequestBody Felhasznalo user) {
-        return userRepository.register(user);
+    boolean register(@RequestBody FelhasznaloInfo userInfo) {
+        return userRepository.register(userInfo);
     }
 
     @RequestMapping(value = "/login",
