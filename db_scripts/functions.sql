@@ -33,12 +33,18 @@ BEGIN
 END;
 
 
-DECLARE
-PROCEDURE rendeles_kiszallitas(felh IN NUMBER, kupon in NUMBER,atvevo in VARCHAR,lakcim in NUMBER) IS
+CREATE OR REPLACE PROCEDURE rendeles_kiszallitas(
+    felh IN NUMBER, 
+    kupon in NUMBER,
+    atvevo in VARCHAR,
+    lakcim in NUMBER
+    ) 
+IS
 BEGIN
     INSERT INTO Rendeles (felhasznaloid,mikor,kuponkod) VALUES(felh,sysdate,kupon);
     INSERT INTO Kiszallitas (felhasznaloid,atvevonev,lakcimid) VALUES(felh,atvevo,lakcim);
 END;
+/
 
 
 

@@ -30,6 +30,15 @@ public class SqlQueries {
             "FROM SHOP_ADMIN.Ertekeles\n" +
             "WHERE termekId = ? OR szolgaltatasId = ?";
 
+    // Rendeles
+    public static String SELECT_LAST_ORDER = "SELECT * FROM SHOP_ADMIN.Rendeles WHERE rendelesSzam = (SELECT MAX(rendelesSzam) FROM SHOP_ADMIN.Rendeles)";
+
+    // RendelesTermek
+    public static String INSERT_RENDELES_TERMEK = "INSERT INTO SHOP_ADMIN.RendelesTermek VALUES (?, ?, ?)";
+
+    // RendelesSzolgaltatas
+    public static String INSERT_RENDELES_SZOLGALTATAS = "INSERT INTO SHOP_ADMIN.RendelesSzolgaltatas VALUES (?, ?)";
+
 
     // Osszetett lekerdezesek //
     public static String SELECT_PRODUCTTYPE_BY_CATEGORY = "SELECT id, nev FROM SHOP_ADMIN.Termekfajta WHERE id IN " +
@@ -110,6 +119,10 @@ public class SqlQueries {
     // Fuggvenyhivas //
     public static String REGISTER = "BEGIN\n" +
             "    REGISTER(?, ?, ?, ?, ?, ?, ?, ?);\n" +
+            "END;";
+
+    public static String RENDELES_KISZALLITAS = "BEGIN\n" +
+            "    rendeles_kiszallitas(?, ?, ?, ?);\n" +
             "END;";
 
 }
