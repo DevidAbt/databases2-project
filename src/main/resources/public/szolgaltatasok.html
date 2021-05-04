@@ -10,13 +10,28 @@
     ></script>
     <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="./js/load-header.js"></script>
-    <script type="text/javascript" src="./js/cart-page.js"></script>
+    <script type="text/javascript" src="./js/services.js"></script>
     <title>Kisvakond Kertészbolt</title>
   </head>
   <body>
     <div class="main-container">
       <div id="header"></div>
-      <div id="rows"></div>
+      <div id="search-row">
+        <div class="row">
+          <div class="content">
+            <!-- <label for="searchInput">Keresés</label> -->
+            <h2>Keresés</h2>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="szolgáltatás neve..."
+              style="margin: 2px;padding: 2px;;"
+            />
+            <button id="searchButton" style="padding: 2px;">Keres</button>
+          </div>
+        </div>
+      </div>
+      <div id="service-table"></div>
     </div>
   </body>
 </html>

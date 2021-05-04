@@ -22,10 +22,14 @@ public class SqlQueries {
     public static String SELECT_PRODUCTS_BY_PRODUCTTYPE = "SELECT id, uzletId, termekFajtaId, kategoriaId, nev, ar, leiras " +
             "FROM SHOP_ADMIN.Termek WHERE termekFajtaId = ?";
 
+    // Szolgaltatas
+    public static String SELECT_ALL_SERVICES = "SELECT * FROM SHOP_ADMIN.szolgaltatas";
+
     // Ertekeles
     public static String SELECT_RATINGS = "SELECT id, felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag \n" +
             "FROM SHOP_ADMIN.Ertekeles\n" +
             "WHERE termekId = ? OR szolgaltatasId = ?";
+
 
     // Osszetett lekerdezesek //
     public static String SELECT_PRODUCTTYPE_BY_CATEGORY = "SELECT id, nev FROM SHOP_ADMIN.Termekfajta WHERE id IN " +
