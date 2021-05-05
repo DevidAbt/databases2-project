@@ -116,6 +116,8 @@ function register(username, name, password, tel, email, city, street, number) {
       console.log(result);
       if (result == "false") {
         $("#wrongReg").css("display", "block");
+      } else {
+        location.reload();
       }
     },
     error: function (e) {

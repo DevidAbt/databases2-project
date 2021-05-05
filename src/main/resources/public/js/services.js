@@ -72,8 +72,6 @@ function updateServicesTable(services) {
   table += `</table>
           </div>
         </main>
-        <button style="margin: auto;display: block;"
-          onclick="switchToCategoryRows()">Vissza</button>
       </div>
     </div>`;
 

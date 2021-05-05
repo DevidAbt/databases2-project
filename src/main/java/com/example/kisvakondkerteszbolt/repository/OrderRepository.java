@@ -131,4 +131,15 @@ public class OrderRepository {
         }
         return result;
     }
+
+    public void rate(Ertekeles rating) {
+        jdbcTemplate.update(
+                SqlQueries.INSERT_RATING,
+                rating.felhasznaloId,
+                rating.termekId != 0 ? rating.termekId : null,
+                rating.szolgaltatasId != 0 ? rating.szolgaltatasId : null,
+                rating.szoveg,
+                rating.csillag
+        );
+    }
 }

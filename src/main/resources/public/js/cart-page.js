@@ -13,6 +13,10 @@ $(document).ready(function () {
   getOrdersOfUser(user.id);
 });
 
+var currentOrders = [];
+var rateId;
+var rateIsProduct;
+
 function updateCartTable(cart) {
   let table = `<div class="row">
                 <div class="content">
@@ -186,6 +190,7 @@ function getOrdersOfUser(userId) {
 }
 
 function updateOrderRows(orders) {
+  currentOrders = orders;
   let tables = [];
   orders.forEach((order) => {
     let table = `<div class="row">
@@ -200,6 +205,7 @@ function updateOrderRows(orders) {
               <td>Mennyiség</td>
               <td>Ár/darab</td>
               <td>Ár</td>
+              <td></td>
             </tr>`;
     let sum = 0;
     order.termekek.forEach((product) => {
@@ -211,6 +217,9 @@ function updateOrderRows(orders) {
                 <td>${product.mennyiseg}</td>
                 <td>${product.ar} Ft</td>
                 <td>${product.ar * product.mennyiseg} Ft</td>
+                <td>
+                  <button onclick="rate(${product.id}, true)">Értékel</button>
+                </td>
                 </tr>
               `;
       }
@@ -223,6 +232,9 @@ function updateOrderRows(orders) {
                 <td>1</td>
                 <td>${service.ar} Ft</td>
                 <td>${service.ar} Ft</td>
+                <td>
+                  <button onclick="rate(${service.id}, false)">Értékel</button>
+                </td>
                 </tr>
               `;
     });
@@ -238,4 +250,64 @@ function updateOrderRows(orders) {
   });
 
   $("#order-rows").html(tables.join(""));
+}
+
+function rate(id, isProduct) {
+  rateId = id;
+  rateIsProduct = isProduct;
+  updateRateRow();
+  $("#rate-row").css("display", "block");
+}
+
+function sendRating() {
+  console.log("sendRating called");
+  let userId = JSON.parse(sessionStorage.getItem("user")).id;
+  let text = $("#rateText").val();
+  let stars = parseInt($("#rateStars").val());
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/api/order/rate",
+    data: JSON.stringify({
+      felhasznaloId: userId,
+      termekId: rateIsProduct ? rateId : 0,
+      szolgaltatasId: !rateIsProduct ? rateId : 0,
+      szoveg: text,
+      csillag: stars
+    }),
+    dataType: "json",
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
+      console.log("sendRating: ", data);
+      $("#rate-row").css("display", "none");
+    },
+    error: function (e) {
+      console.log("sendRating error:");
+      console.log(e);
+    },
+  });
+}
+
+function updateRateRow() {
+  let table = `<div class="row">
+                <div class="content">
+                  <main>
+                    <h2>Értékelés küldése (${rateId})</h2>
+                    <div class="kert">
+                      <div style="margin-top: 7px;">
+                        <textarea id="rateText" name="textarea" cols="30" rows="5" style="display: block;"></textarea>
+                        <div style="margin-top: 7px; display: flex; justify-content: center;">
+                          <input id="rateStars" type="number" placeholder="Csillag" min=1 max=10 value="10" style="width: 65px;"></input>
+                          <button style="margin-left: 10px;"
+                            onclick="sendRating()">Rendelés</button>
+                        </div>
+                      </div>
+                    </div>
+                  </main>
+                </div>
+              </div>`;
+
+  $("#rate-row").html(table);
+  $("#rate-row").css("display", "none");
 }

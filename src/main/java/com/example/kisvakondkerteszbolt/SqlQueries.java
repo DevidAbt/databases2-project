@@ -31,6 +31,8 @@ public class SqlQueries {
     public static String SELECT_RATINGS = "SELECT id, felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag \n" +
             "FROM SHOP_ADMIN.Ertekeles\n" +
             "WHERE termekId = ? OR szolgaltatasId = ?";
+    public static String INSERT_RATING = "INSERT INTO SHOP_ADMIN.Ertekeles (felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag)\n" +
+            "VALUES(?, ?, ?, sysdate, ?, ?)";
 
     // Rendeles
     public static String SELECT_LAST_ORDER = "SELECT * FROM SHOP_ADMIN.Rendeles WHERE rendelesSzam = (SELECT MAX(rendelesSzam) FROM SHOP_ADMIN.Rendeles)";

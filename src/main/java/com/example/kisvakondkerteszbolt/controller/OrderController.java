@@ -51,4 +51,14 @@ public class OrderController {
     List<OrderInfo> getOrderInfoByUser(@RequestParam(value = "felhasznaloId") int categoryId) {
         return orderRepository.selectOrderInfoByUser(categoryId);
     }
+
+    @RequestMapping(value = "/rate",
+            method = RequestMethod.POST,
+            produces = "application/json",
+            consumes = {"application/json"})
+    public @ResponseBody
+    boolean rate(@RequestBody Ertekeles rating) {
+        orderRepository.rate(rating);
+        return true;
+    }
 }
