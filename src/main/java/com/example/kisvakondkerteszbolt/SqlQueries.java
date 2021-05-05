@@ -21,9 +21,11 @@ public class SqlQueries {
     // Termek
     public static String SELECT_PRODUCTS_BY_PRODUCTTYPE = "SELECT id, uzletId, termekFajtaId, kategoriaId, nev, ar, leiras " +
             "FROM SHOP_ADMIN.Termek WHERE termekFajtaId = ?";
+    public static String SELECT_PRODUCT = "SELECT * FROM SHOP_ADMIN.Termek WHERE id = ?";
 
     // Szolgaltatas
     public static String SELECT_ALL_SERVICES = "SELECT * FROM SHOP_ADMIN.szolgaltatas";
+    public static String SELECT_SERVICES_BY_ORDER_ID = "SELECT * FROM SHOP_ADMIN.Szolgaltatas WHERE id IN (SELECT szolgaltatasId FROM SHOP_ADMIN.RendelesSzolgaltatas WHERE rendelesSzam = ?)";
 
     // Ertekeles
     public static String SELECT_RATINGS = "SELECT id, felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag \n" +
@@ -32,12 +34,15 @@ public class SqlQueries {
 
     // Rendeles
     public static String SELECT_LAST_ORDER = "SELECT * FROM SHOP_ADMIN.Rendeles WHERE rendelesSzam = (SELECT MAX(rendelesSzam) FROM SHOP_ADMIN.Rendeles)";
+    public static String SELECT_ORDERS_OF_USER = "SELECT * FROM SHOP_ADMIN.Rendeles WHERE felhasznaloid = ? ORDER BY rendelesSzam DESC";
 
     // RendelesTermek
     public static String INSERT_RENDELES_TERMEK = "INSERT INTO SHOP_ADMIN.RendelesTermek VALUES (?, ?, ?)";
+    public static String SELECT_RENDELES_TERMEK = "SELECT * FROM SHOP_ADMIN.RendelesTermek WHERE rendelesSzam = ?";
 
     // RendelesSzolgaltatas
     public static String INSERT_RENDELES_SZOLGALTATAS = "INSERT INTO SHOP_ADMIN.RendelesSzolgaltatas VALUES (?, ?)";
+    public static String SELECT_RENDELES_SZOLGALTATAS = "SELECT * FROM SHOP_ADMIN.RendelesSzolgaltatas WHERE rendelesSzam = ?";
 
 
     // Osszetett lekerdezesek //

@@ -1,12 +1,16 @@
 $(document).ready(function () {
-  var user = sessionStorage.getItem("user");
-  if (!user) {
+  var userString = sessionStorage.getItem("user");
+  if (!userString) {
     window.location.replace("./profilom.html");
   }
+  var user = JSON.parse(userString);
+
   $.getScript("./js/cart.js", () => {
     let cart = getCart();
     updateCartTable(cart ? cart : []);
   });
+
+  getOrdersOfUser(user.id);
 });
 
 function updateCartTable(cart) {
@@ -17,8 +21,8 @@ function updateCartTable(cart) {
                     <div class="kert">
                       <table>`;
   table += `<tr class="termek-box">
-              <td>Termékkód</td>
-              <td>Terméknév</td>
+              <td>Kód</td>
+              <td>Termék/Szolgáltatás neve</td>
               <td>Mennyiség</td>
               <td>Ár/darab</td>
               <td>Ár</td>
@@ -54,7 +58,7 @@ function updateCartTable(cart) {
       </div>
     </div>`;
 
-  $("#rows").html(table);
+  $("#cart-table").html(table);
 }
 
 function remove(id) {
@@ -100,6 +104,10 @@ function order() {
 
         orderProduct(products);
         orderServices(services);
+
+        sessionStorage.removeItem("cart");
+        updateCartTable([]);
+        getOrdersOfUser(JSON.parse(sessionStorage.getItem("user")).id);
       });
     },
     error: function (e) {
@@ -156,4 +164,78 @@ function orderServices(services) {
       console.log(e);
     },
   });
+}
+
+function getOrdersOfUser(userId) {
+  console.log("getOrdersOfUser called, ", userId);
+  $.ajax({
+    type: "GET",
+    url: "/api/order/user",
+    data: {
+      felhasznaloId: userId,
+    },
+    success: function (data) {
+      console.log("getOrdersOfUser: ", data);
+      updateOrderRows(data);
+    },
+    error: function (e) {
+      console.log("getOrdersOfUser error");
+      console.log(e);
+    },
+  });
+}
+
+function updateOrderRows(orders) {
+  let tables = [];
+  orders.forEach((order) => {
+    let table = `<div class="row">
+                <div class="content">
+                  <main>
+                    <h2>${order.rendelesSzam} számú rendelés, ${order.mikor}</h2>
+                    <div class="kert">
+                      <table>`;
+    table += `<tr class="termek-box">
+              <td>Kód</td>
+              <td>Termék/Szolgáltatás neve</td>
+              <td>Mennyiség</td>
+              <td>Ár/darab</td>
+              <td>Ár</td>
+            </tr>`;
+    let sum = 0;
+    order.termekek.forEach((product) => {
+      sum += product.ar * product.mennyiseg;
+      if (product.mennyiseg > 0) {
+        table += `<tr class="termek-box">
+                <td>${product.id}</td>
+                <td>${product.nev}</td>
+                <td>${product.mennyiseg}</td>
+                <td>${product.ar} Ft</td>
+                <td>${product.ar * product.mennyiseg} Ft</td>
+                </tr>
+              `;
+      }
+    });
+    order.szolgaltatasok.forEach((service) => {
+      sum += service.ar;
+      table += `<tr class="termek-box">
+                <td>${service.id}</td>
+                <td>${service.nev}</td>
+                <td>1</td>
+                <td>${service.ar} Ft</td>
+                <td>${service.ar} Ft</td>
+                </tr>
+              `;
+    });
+    table += `</table>
+          </div>
+        </main>
+        <div>
+          <div style="margin: auto;display: block;">Összesen: ${sum}Ft</div>
+        </div>
+      </div>
+    </div>`;
+    tables.push(table);
+  });
+
+  $("#order-rows").html(tables.join(""));
 }

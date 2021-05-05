@@ -1,11 +1,8 @@
 package com.example.kisvakondkerteszbolt.repository;
 
 import com.example.kisvakondkerteszbolt.SqlQueries;
-import com.example.kisvakondkerteszbolt.model.Rendeles;
-import com.example.kisvakondkerteszbolt.model.RendelesKiszallitas;
-import com.example.kisvakondkerteszbolt.model.TermekMennyiseg;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.LakcimRowMapper;
-import com.example.kisvakondkerteszbolt.repository.rowmapper.RendelesRowMapper;
+import com.example.kisvakondkerteszbolt.model.*;
+import com.example.kisvakondkerteszbolt.repository.rowmapper.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,6 +10,7 @@ import org.springframework.jdbc.core.SqlTypeValue;
 import org.springframework.stereotype.Repository;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -75,5 +73,62 @@ public class OrderRepository {
                     id
             );
         }
+    }
+
+    public List<Rendeles> selectOrdersOfUser(int userId) {
+        List<Rendeles> result = jdbcTemplate.query(
+                SqlQueries.SELECT_ORDERS_OF_USER,
+                new Object[]{userId},
+                new RendelesRowMapper()
+        );
+        return result;
+    }
+
+    public List<RendelesTermek> selectOrderedProductsOfOrder(int orderId) {
+        List<RendelesTermek> result = jdbcTemplate.query(
+                SqlQueries.SELECT_RENDELES_TERMEK,
+                new Object[]{orderId},
+                new RendelesTermekRowMapper()
+        );
+        return result;
+    }
+
+    public Termek selectProduct(int productId) {
+        try {
+            return (Termek) jdbcTemplate.queryForObject(
+                    SqlQueries.SELECT_PRODUCT,
+                    new Object[]{productId},
+                    new TermekRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public List<Szolgaltatas> selectServicesOfOrder(int orderId) {
+        List<Szolgaltatas> result = jdbcTemplate.query(
+                SqlQueries.SELECT_SERVICES_BY_ORDER_ID,
+                new Object[]{orderId},
+                new SzolgaltatasRowMapper()
+        );
+        return result;
+    }
+
+    public List<OrderInfo> selectOrderInfoByUser(int userId) {
+        List<OrderInfo> result = new ArrayList<>();
+        List<Rendeles> orders = selectOrdersOfUser(userId);
+        for (Rendeles order : orders) {
+            List<RendelesTermek> orderedProducts = selectOrderedProductsOfOrder(order.rendelesSzam);
+            List<TermekMennyiseggel> termekMennyisegek = new ArrayList<>();
+            for (RendelesTermek orderedProduct : orderedProducts) {
+                Termek product = selectProduct(orderedProduct.termekId);
+                termekMennyisegek.add(new TermekMennyiseggel(product.id, product.uzletId, product.termekFajtaId,
+                        product.kategoriaId, product.nev, product.ar, product.leiras, orderedProduct.mennyiseg));
+            }
+            List<Szolgaltatas> services = selectServicesOfOrder(order.rendelesSzam);
+            OrderInfo orderInfo = new OrderInfo(order.rendelesSzam, order.mikor, termekMennyisegek, services);
+            result.add(orderInfo);
+        }
+        return result;
     }
 }

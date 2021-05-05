@@ -1,10 +1,7 @@
 package com.example.kisvakondkerteszbolt.controller;
 
 import com.example.kisvakondkerteszbolt.SqlQueries;
-import com.example.kisvakondkerteszbolt.model.Rendeles;
-import com.example.kisvakondkerteszbolt.model.RendelesKiszallitas;
-import com.example.kisvakondkerteszbolt.model.Termek;
-import com.example.kisvakondkerteszbolt.model.TermekMennyiseg;
+import com.example.kisvakondkerteszbolt.model.*;
 import com.example.kisvakondkerteszbolt.repository.OrderRepository;
 import com.example.kisvakondkerteszbolt.repository.rowmapper.LakcimRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +44,11 @@ public class OrderController {
     boolean orderServices(@RequestBody List<Integer> serviceIds) {
         orderRepository.orderServices(serviceIds);
         return true;
+    }
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public @ResponseBody
+    List<OrderInfo> getOrderInfoByUser(@RequestParam(value = "felhasznaloId") int categoryId) {
+        return orderRepository.selectOrderInfoByUser(categoryId);
     }
 }
