@@ -104,4 +104,12 @@ public class ProductRepository {
         );
         return true;
     }
+
+    public boolean deleteProduct(int productId) {
+        jdbcTemplate.update(
+                SqlQueries.DELETE_PRODUCT,
+                productId
+        );
+        return true;
+    }
 }

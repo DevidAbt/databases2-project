@@ -70,4 +70,11 @@ public class ProductController {
     boolean getRatings(@RequestBody Termek  product) {
         return productRepository.insertProduct(product);
     }
+
+    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    public @ResponseBody
+    boolean removeProduct(@RequestParam(value = "productId") int productId) {
+        productRepository.deleteProduct(productId);
+        return true;
+    }
 }

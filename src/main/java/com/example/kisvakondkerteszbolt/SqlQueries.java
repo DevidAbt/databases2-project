@@ -24,6 +24,7 @@ public class SqlQueries {
     public static String SELECT_PRODUCT = "SELECT * FROM SHOP_ADMIN.Termek WHERE id = ?";
     public static String INSERT_PRODUCT = "INSERT INTO SHOP_ADMIN.Termek (uzletId, termekFajtaId, kategoriaId, nev, ar, leiras) \n" +
             "VALUES (?, ?, ?, ?, ?, ?)";
+    public static String DELETE_PRODUCT = "DELETE FROM SHOP_ADMIN.Termek WHERE id = ?";
 
     // Szolgaltatas
     public static String SELECT_ALL_SERVICES = "SELECT * FROM SHOP_ADMIN.szolgaltatas";
