@@ -1,5 +1,12 @@
+var admin = false;
 $(document).ready(function () {
   getCategories();
+
+  var userString = sessionStorage.getItem("user");
+  var user = JSON.parse(userString);
+  if (user && user.isAdmin) {
+    admin = true;
+  }
 
   $.getScript("./js/cart.js", () => {
     getCart();
@@ -11,12 +18,18 @@ $(document).ready(function () {
 function switchToProductInfo() {
   $("#category-rows").css("display", "none");
   $("#product-table").css("display", "block");
+  if (admin) {
+    $("#add-row").css("display", "block");
+  }
   $("#search-row").css("display", "none");
 }
 
 function switchToCategoryRows() {
   $("#category-rows").css("display", "block");
   $("#product-table").css("display", "none");
+  if (admin) {
+    $("#add-row").css("display", "none");
+  }
   $("#shop-table").css("display", "none");
   $("#shop-table").html("");
   $("#ratings-table").css("display", "none");
@@ -29,10 +42,20 @@ function setUpListeners() {
     let searchInput = $("#searchInput").val();
     getShopInfoByName(searchInput);
   });
+
+  $("#addButton").click(() => {
+    let name = $("#addName").val();
+    let desc = $("#addDesc").val();
+    let price = parseInt($("#addPrice").val());
+    let shop = $("#addShop").val();
+    addProduct(name, desc, price, shop);
+  });
 }
 
 var categoriesWithTypes = [];
 var currentProducts = [];
+var currentCategory;
+var currentProdutctType;
 
 function getCategories() {
   console.log("getCategories called");
@@ -57,6 +80,7 @@ function getCategories() {
 
 function getProductTypes(kategoria) {
   console.log("getProductTypes called, ", kategoria);
+  currentCategory = kategoria.id;
   $.ajax({
     type: "GET",
     url: "/api/product/types/",
@@ -99,6 +123,7 @@ function updateCategoryRows() {
 
 function getProductsInfo(termekFajtaId) {
   console.log("getProductsInfo called, ", termekFajtaId);
+  currentProdutctType = termekFajtaId;
   $.ajax({
     type: "GET",
     url: "/api/product/type/info",
@@ -294,4 +319,34 @@ function updateRatingsTable(ratings) {
   $("#ratings-table").html(table);
   $("#ratings-table").css("display", "block");
   $("#shop-table").css("display", "none");
+}
+
+function addProduct(name, desc, price, shop) {
+  console.log("addProduct called");
+  console.log(currentProdutctType);
+  console.log(currentCategory);
+  $.ajax({
+    type: "POST",
+    contentType: "application/json",
+    url: "/api/product/add",
+    data: JSON.stringify({
+      uzletId: shop,
+      termekFajtaId: currentProdutctType,
+      kategoriaId: currentCategory,
+      nev: name,
+      ar: price,
+      leiras: desc,
+    }),
+    dataType: "json",
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
+      console.log("addProduct: ", data);
+      location.reload();
+    },
+    error: function (e) {
+      console.log("addProduct error:");
+      console.log(JSON.stringify(e));
+    },
+  });
 }
