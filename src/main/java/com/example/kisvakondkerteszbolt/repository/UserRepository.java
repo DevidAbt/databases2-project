@@ -1,9 +1,8 @@
 package com.example.kisvakondkerteszbolt.repository;
 
 import com.example.kisvakondkerteszbolt.SqlQueries;
-import com.example.kisvakondkerteszbolt.model.Felhasznalo;
-import com.example.kisvakondkerteszbolt.model.FelhasznaloInfo;
-import com.example.kisvakondkerteszbolt.model.Lakcim;
+import com.example.kisvakondkerteszbolt.model.*;
+import com.example.kisvakondkerteszbolt.repository.rowmapper.AdminisztratorRowMapper;
 import com.example.kisvakondkerteszbolt.repository.rowmapper.FelhasznaloRowMapper;
 import com.example.kisvakondkerteszbolt.repository.rowmapper.LakcimRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,7 +100,19 @@ public class UserRepository {
         return true;
     }
 
-    public Felhasznalo login(String username, String password) {
+    private Adminisztrator selectAdmin(int userId){
+        try {
+            return (Adminisztrator) jdbcTemplate.queryForObject(
+                    SqlQueries.SELECT_ADMIN,
+                    new Object[]{userId},
+                    new AdminisztratorRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public FelhasznaloAdmin login(String username, String password) {
         Felhasznalo user = selectUserByUsername(username);
         if (user == null) {
             return null; // user not exists
@@ -111,8 +122,18 @@ public class UserRepository {
             return null;
         }
 
-        user.hash = null;
+        Adminisztrator admin = selectAdmin(user.id);
+        FelhasznaloAdmin retVal;
+        if (admin != null) {
+            retVal = new FelhasznaloAdmin(user.id, user.felhasznalonev, user.nev, null,
+                    user.telefonszam, user.email, user.lakcimId, true, admin.termeketHozzaadhat, admin.moderalhat,
+                    admin.szolgaltatastHozzaadhat);
+        }
+        else {
+            retVal = new FelhasznaloAdmin(user.id, user.felhasznalonev, user.nev, null,
+                    user.telefonszam, user.email, user.lakcimId, false, 0, 0, 0);
+        }
 
-        return user;
+        return retVal;
     }
 }

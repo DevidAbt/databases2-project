@@ -1,6 +1,7 @@
 package com.example.kisvakondkerteszbolt.controller;
 
 import com.example.kisvakondkerteszbolt.model.Felhasznalo;
+import com.example.kisvakondkerteszbolt.model.FelhasznaloAdmin;
 import com.example.kisvakondkerteszbolt.model.FelhasznaloInfo;
 import com.example.kisvakondkerteszbolt.model.Lakcim;
 import com.example.kisvakondkerteszbolt.repository.UserRepository;
@@ -36,7 +37,7 @@ public class UserController {
             produces = "application/json",
             consumes = {"application/json"})
     public @ResponseBody
-    Felhasznalo login(@RequestBody Felhasznalo user) {
+    FelhasznaloAdmin login(@RequestBody Felhasznalo user) {
         return userRepository.login(user.felhasznalonev, user.hash);
     }
 

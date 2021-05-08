@@ -46,6 +46,9 @@ public class SqlQueries {
     public static String INSERT_RENDELES_SZOLGALTATAS = "INSERT INTO SHOP_ADMIN.RendelesSzolgaltatas VALUES (?, ?)";
     public static String SELECT_RENDELES_SZOLGALTATAS = "SELECT * FROM SHOP_ADMIN.RendelesSzolgaltatas WHERE rendelesSzam = ?";
 
+    // Adminisztrator
+    public static String SELECT_ADMIN = "SELECT * FROM SHOP_ADMIN.Adminisztrator WHERE id = ?";
+
 
     // Osszetett lekerdezesek //
     public static String SELECT_PRODUCTTYPE_BY_CATEGORY = "SELECT id, nev FROM SHOP_ADMIN.Termekfajta WHERE id IN " +
