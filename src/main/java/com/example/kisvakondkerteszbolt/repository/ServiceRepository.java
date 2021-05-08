@@ -21,4 +21,13 @@ public class ServiceRepository {
         );
         return result;
     }
+
+    public List<Ertekeles> selectRatings(int serviceId) {
+        List<Ertekeles> result = jdbcTemplate.query(
+                SqlQueries.SELECT_RATINGS,
+                new Object[]{serviceId, serviceId},
+                new ErtekelesRowMapper()
+        );
+        return result;
+    }
 }

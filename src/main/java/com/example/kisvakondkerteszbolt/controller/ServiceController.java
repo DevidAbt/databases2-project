@@ -19,4 +19,10 @@ public class ServiceController {
     List<Szolgaltatas> getServices() {
         return serviceRepository.selectServices();
     }
+
+    @RequestMapping(value = "/ratings", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Ertekeles> getRatings(@RequestParam(value = "serviceId") int serviceId) {
+        return serviceRepository.selectRatings(serviceId);
+    }
 }

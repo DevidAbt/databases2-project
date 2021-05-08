@@ -91,9 +91,10 @@ function getRatings(serviceId) {
   console.log("getRatings called, ", serviceId);
   $.ajax({
     type: "GET",
+    contentType: "application/json",
     url: "/api/service/ratings",
     data: {
-      termekId: serviceId,
+      serviceId: serviceId
     },
     success: function (data) {
       console.log("getRatings: ", data);
