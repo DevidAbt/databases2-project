@@ -18,3 +18,6 @@ ALTER TABLE SHOP_ADMIN.Kiszallitas MODIFY (kiszallitasiSzam DEFAULT kiszallitas_
 
 CREATE SEQUENCE ertekeles_seq START WITH 86; 
 ALTER TABLE SHOP_ADMIN.Ertekeles MODIFY (id DEFAULT ertekeles_seq.NEXTVAL);
+
+CREATE SEQUENCE termek_seq START WITH 1048; 
+ALTER TABLE SHOP_ADMIN.Termek MODIFY (id DEFAULT termek_seq.NEXTVAL);

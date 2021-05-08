@@ -91,4 +91,17 @@ public class ProductRepository {
         );
         return result;
     }
+
+    public boolean insertProduct(Termek product) {
+        jdbcTemplate.update(
+                SqlQueries.INSERT_PRODUCT,
+                product.uzletId,
+                product.termekFajtaId,
+                product.kategoriaId,
+                product.nev,
+                product.ar,
+                product.leiras
+        );
+        return true;
+    }
 }

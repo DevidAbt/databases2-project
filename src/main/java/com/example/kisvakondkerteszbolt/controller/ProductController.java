@@ -61,4 +61,13 @@ public class ProductController {
     List<Ertekeles> getRatings(@RequestParam(value = "termekId") int productId) {
         return productRepository.selectRatings(productId);
     }
+
+    @RequestMapping(value = "/add",
+            method = RequestMethod.POST,
+            produces = "application/json",
+            consumes = {"application/json"})
+    public @ResponseBody
+    boolean getRatings(@RequestBody Termek  product) {
+        return productRepository.insertProduct(product);
+    }
 }
