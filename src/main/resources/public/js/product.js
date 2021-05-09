@@ -175,15 +175,14 @@ function updateProductTable(products) {
                 <td>${product.ar}</td>
                 <td>${product.leiras}</td>
                 <td><a href="#" onclick="getRatings(${product.id});return false;">ÉRTÉKELÉS</a></td>
-                <td>`
+                <td>`;
     if (!admin) {
       table += `<input type="number" style="width: 35px" min="1" value="1">
       <button onclick="toCart(${product.id})">KOSÁRBA</button>`;
-    } 
-    else {
+    } else {
       table += `<button onclick="removeProduct(${product.id})">TÖRLÉS</button>`;
     }
-    table += '</td>';
+    table += "</td>";
   });
   table += `</table>
           </div>
@@ -306,13 +305,19 @@ function updateRatingsTable(ratings) {
   table += `<tr class="termek-box">
               <td>CSILLAG</td>
               <td>SZÖVEG</td>
-              <td>DÁTUM</td>
-            </tr>`;
+              <td>DÁTUM</td>`;
+  if (admin) {
+    table += "<td></td>";
+  }
+  table += "</tr>";
   ratings.forEach((rating) => {
     table += `<tr class="termek-box">
               <td>${rating.csillag}/10</td>
               <td>${rating.szoveg}</td>
               <td>${rating.datum}</td>`;
+    if (admin) {
+      table += `<td><button onclick="removeRating(${rating.id})">TÖRLÉS</button></td>`;
+    }
   });
   table += `</table>
           </div>
@@ -372,6 +377,29 @@ function removeProduct(productId) {
     },
     error: function (e) {
       console.log("removeProduct error");
+      console.log(e);
+    },
+  });
+}
+
+function removeRating(ratingId) {
+  console.log("removeRating called", ratingId);
+  $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    url: "/api/product/removeRating",
+    data: {
+      ratingId: ratingId,
+    },
+    cache: false,
+    timeout: 600000,
+    success: function (data) {
+      console.log("removeRating: ", data);
+      $("#ratings-table").css("display", "none");
+      $("#ratings-table").html("");
+    },
+    error: function (e) {
+      console.log("removeRating error");
       console.log(e);
     },
   });

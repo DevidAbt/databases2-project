@@ -36,6 +36,7 @@ public class SqlQueries {
             "WHERE termekId = ? OR szolgaltatasId = ?";
     public static String INSERT_RATING = "INSERT INTO SHOP_ADMIN.Ertekeles (felhasznaloId, termekId, szolgaltatasId, datum, szoveg, csillag)\n" +
             "VALUES(?, ?, ?, sysdate, ?, ?)";
+    public static String DELETE_RATING = "DELETE FROM SHOP_ADMIN.Ertekeles WHERE id = ?";
 
     // Rendeles
     public static String SELECT_LAST_ORDER = "SELECT * FROM SHOP_ADMIN.Rendeles WHERE rendelesSzam = (SELECT MAX(rendelesSzam) FROM SHOP_ADMIN.Rendeles)";

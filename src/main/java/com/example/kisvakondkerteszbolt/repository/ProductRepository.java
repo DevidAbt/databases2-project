@@ -112,4 +112,12 @@ public class ProductRepository {
         );
         return true;
     }
+
+    public boolean deleteRating(int ratingId) {
+        jdbcTemplate.update(
+                SqlQueries.DELETE_RATING,
+                ratingId
+        );
+        return true;
+    }
 }

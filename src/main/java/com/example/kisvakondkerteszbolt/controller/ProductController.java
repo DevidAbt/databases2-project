@@ -77,4 +77,11 @@ public class ProductController {
         productRepository.deleteProduct(productId);
         return true;
     }
+
+    @RequestMapping(value = "/removeRating", method = RequestMethod.GET)
+    public @ResponseBody
+    boolean removeRating(@RequestParam(value = "ratingId") int ratingId) {
+        productRepository.deleteRating(ratingId);
+        return true;
+    }
 }
