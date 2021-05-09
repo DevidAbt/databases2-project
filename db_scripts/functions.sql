@@ -9,7 +9,7 @@ BEGIN
             exit when lekeres%NOTFOUND;
             if (rekord.ar>learaz) then
                 rekord.ar := rekord.ar-learaz;
-                UPDATE Termek SET ar = rekord.ar WHERE termek.termekfajtaid = rekord.termekfajtaid;
+                UPDATE Termek SET ar = rekord.ar WHERE termek.id = rekord.id;
             end if;
         end loop;
 END;

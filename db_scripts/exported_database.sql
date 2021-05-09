@@ -752,6 +752,7 @@ BEGIN
             fetch lekeres INTO rekord;
             exit when lekeres%NOTFOUND;
             rekord.ar := rekord.ar+felaraz;
+            UPDATE Termek SET ar = rekord.ar WHERE termek.id = rekord.id;
         end loop;
 END;
 
