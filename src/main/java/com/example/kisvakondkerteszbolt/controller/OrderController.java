@@ -61,4 +61,22 @@ public class OrderController {
         orderRepository.rate(rating);
         return true;
     }
+
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Rendeles> selectAll() {
+        return orderRepository.allOrders();
+    }
+
+    @RequestMapping(value = "/recent", method = RequestMethod.GET)
+    public @ResponseBody
+    List<RendelesInfo> rencent(@RequestParam(value = "months") int months) {
+        return orderRepository.recentOrders(months);
+    }
+
+    @RequestMapping(value = "/price", method = RequestMethod.GET)
+    public @ResponseBody
+    boolean price(@RequestParam(value = "productTypeId") int productTypeId,@RequestParam(value = "price") int price) {
+        return orderRepository.learazas(productTypeId, price);
+    }
 }

@@ -52,4 +52,9 @@ public class UserController {
         return userRepository.selectAddressById(id);
     }
 
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Felhasznalo> getAllUsers() {
+        return userRepository.allUser();
+    }
 }

@@ -63,6 +63,12 @@ public class OrderRepository {
         }
     }
 
+    public String not_used() {
+         return SqlQueries.INSERT_USER + SqlQueries.INSERT_ADDRESS + SqlQueries.SELECT_RENDELES_SZOLGALTATAS
+                 + SqlQueries.SELECT_SHOPS + SqlQueries.SELECT_ORDER_DELIVERY_BY_USER
+                 + SqlQueries.SELECT_RATINGS_BY_USER + SqlQueries.SELECT_ORDER_BY_ADDRESS;
+    }
+
     public void orderServices(List<Integer> serviceIds) {
         Rendeles lastOrder = selectLastOrder();
 
@@ -141,5 +147,56 @@ public class OrderRepository {
                 rating.szoveg,
                 rating.csillag
         );
+    }
+
+    public List<Rendeles> allOrders() {
+        List<Rendeles> result = jdbcTemplate.query(
+                SqlQueries.SELECT_ORDERS,
+                new Object[]{},
+                new RendelesRowMapper()
+        );
+        return result;
+    }
+
+    public List<RendelesInfo> recentOrders(int months) {
+        List<RendelesInfo> result;
+        switch (months) {
+            case 6:
+                result = jdbcTemplate.query(
+                        SqlQueries.SELECT_ORDERS_IN_6_MONTS,
+                        new Object[]{},
+                        new RendelesInfoRowMapper()
+                );
+                break;
+            case 12:
+                result = jdbcTemplate.query(
+                        SqlQueries.SELECT_ORDERS_IN_12_MONTHS,
+                        new Object[]{},
+                        new RendelesInfoRowMapper()
+                );
+                break;
+            default:
+                result = jdbcTemplate.query(
+                        SqlQueries.SELECT_ORDERS_IN_3_MONTHS,
+                        new Object[]{},
+                        new RendelesInfoRowMapper()
+                );
+        }
+        return result;
+    }
+
+    public boolean learazas(int productTypeId, int price) {
+        try {
+            Connection connection = jdbcTemplate.getDataSource().getConnection();
+            CallableStatement callableStatement = connection.prepareCall(SqlQueries.LEARAZAS);
+            callableStatement.setInt(1, productTypeId);
+            callableStatement.setInt(2, price);
+            callableStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 }

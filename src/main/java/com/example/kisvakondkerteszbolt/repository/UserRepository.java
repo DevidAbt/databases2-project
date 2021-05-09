@@ -136,4 +136,13 @@ public class UserRepository {
 
         return retVal;
     }
+
+    public List<Felhasznalo> allUser() {
+        List<Felhasznalo> result = jdbcTemplate.query(
+                SqlQueries.SELECT_USERS,
+                new Object[]{},
+                new FelhasznaloRowMapper()
+        );
+        return result;
+    }
 }
