@@ -18,7 +18,7 @@ BEGIN
 END;
 /
 
-CREATE TRIGGER JelszovaltasNaplozas
+CREATE OR REPLACE TRIGGER JelszovaltasNaplozas
 BEFORE UPDATE OF hash
 ON Felhasznalo
 REFERENCING NEW AS NEW OLD AS OLD
